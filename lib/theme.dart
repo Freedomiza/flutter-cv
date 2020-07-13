@@ -5,6 +5,7 @@ const kMaxWidth = 1100.0;
 
 const kTextColor = Color(0xFF707070);
 const kTextLightColor = Color(0xFF555555);
+final kTextAssertiveColor = HexColor.fromHex("#f06000");
 final kHeaderHeight = 60;
 final kBackgroundColor1 = HexColor.fromHex("#2b2b2b");
 final kTextColorLight = HexColor.fromHex("#ffffff");
@@ -55,3 +56,11 @@ final kSubHeaderText =
     offset: Offset(3.0, 3.0),
   ),
 ]);
+
+final kBodyTextStyle = TextStyle(
+  color: HexColor.fromHex("#FFFFFF"),
+  fontSize: 18,
+  letterSpacing: 1,
+  wordSpacing: 2,
+  // fontWeight: FontWeight.bold,
+);

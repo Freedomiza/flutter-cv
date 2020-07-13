@@ -1,6 +1,6 @@
-import 'dart:html';
-
+import 'package:cv_app/components/header_button.dart';
 import 'package:cv_app/components/rounded_button.dart';
+import 'package:cv_app/components/section.dart';
 import 'package:cv_app/components/svg_button.dart';
 import 'package:flutter/material.dart';
 
@@ -18,16 +18,10 @@ class TopSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height * 0.9;
+    // double height = MediaQuery.of(context).size.height * 0.9;
     double width = MediaQuery.of(context).size.width;
-    return Container(
-      constraints:
-          BoxConstraints(maxHeight: height, minHeight: 700, minWidth: width),
-      decoration: BoxDecoration(
-        image: DecorationImage(
-            image: AssetImage("assets/images/header-background.jpg"),
-            fit: BoxFit.cover),
-      ),
+    return Section(
+      backgroundImg: "assets/images/header-background.jpg",
       child: Column(
         children: [
           Container(
@@ -38,16 +32,9 @@ class TopSection extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: List.generate(
                   headerItems.length,
-                  (index) => (InkWell(
-                        focusColor: Colors.black,
-                        child: Container(
-                          padding: EdgeInsets.only(left: 10, right: 10),
-                          child: Text(
-                            headerItems[index]["title"],
-                            style: kHeader1,
-                          ),
-                        ),
-                        onTap: () {},
+                  (index) => (HeaderButton(
+                        title: headerItems[index]["title"],
+                        onPress: () {},
                       ))),
             ),
           ),
@@ -96,14 +83,13 @@ class TopSection extends StatelessWidget {
                 )),
             Positioned(
               bottom: 10,
-              right: width / 2,
+              left: width / 2,
               child: RoundedButton(icon: Icons.arrow_downward, onPress: () {}),
             )
           ])),
         ],
       ),
       // height: height,
-      width: double.infinity,
     );
   }
 }

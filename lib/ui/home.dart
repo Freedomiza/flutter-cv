@@ -1,3 +1,4 @@
+import 'package:cv_app/ui/sections/about_me.dart';
 import 'package:cv_app/ui/sections/top-section.dart';
 import 'package:flutter/material.dart';
 
@@ -16,10 +17,10 @@ class HomePage extends StatelessWidget {
       //   bottomOpacity: 0,
       //   // textTheme: context.,
       // ),
-      body: Container(
-        color: kBackgroundColor1,
+      body: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
         child: Column(
-          children: [TopSection()],
+          children: [TopSection(), AboutMe()],
         ),
       ),
     );
