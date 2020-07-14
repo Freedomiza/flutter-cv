@@ -1,4 +1,6 @@
 import 'package:cv_app/ui/sections/about_me.dart';
+import 'package:cv_app/ui/sections/my_skill.dart';
+import 'package:cv_app/ui/sections/my_work.dart';
 import 'package:cv_app/ui/sections/top-section.dart';
 import 'package:flutter/material.dart';
 
@@ -20,7 +22,7 @@ class HomePage extends StatelessWidget {
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Column(
-          children: [TopSection(), AboutMe()],
+          children: [TopSection(), AboutMe(), MyWork(), MySkill()],
         ),
       ),
     );

@@ -3,13 +3,18 @@ import 'package:flutter/material.dart';
 
 const kMaxWidth = 1100.0;
 
-const kTextColor = Color(0xFF707070);
-const kTextLightColor = Color(0xFF555555);
+final kTextColor = HexColor.fromHex("#313131");
+final kTextLightColor = HexColor.fromHex("#555555");
+final kTextColorLight = HexColor.fromHex("#ffffff");
 final kTextAssertiveColor = HexColor.fromHex("#f06000");
+final kTextHighlightColor = HexColor.fromHex("#11abb0");
+
 final kHeaderHeight = 60;
 final kBackgroundColor1 = HexColor.fromHex("#2b2b2b");
-final kTextColorLight = HexColor.fromHex("#ffffff");
+final kBackgroundColorLight = HexColor.fromHex("#f7f7f7");
 const kDefaultPadding = 20.0;
+const double kDefaultFontSize = 15.0;
+const double kHeadingFontSize = 18.0;
 
 final kDefaultShadow = BoxShadow(
   offset: Offset(0, 50),
@@ -58,7 +63,15 @@ final kSubHeaderText =
 ]);
 
 final kBodyTextStyle = TextStyle(
-  color: HexColor.fromHex("#FFFFFF"),
+  color: kTextColorLight,
+  fontSize: 18,
+  letterSpacing: 1,
+  wordSpacing: 2,
+  // fontWeight: FontWeight.bold,
+);
+
+final kBodyTextStyleDark = TextStyle(
+  color: kTextLightColor,
   fontSize: 18,
   letterSpacing: 1,
   wordSpacing: 2,

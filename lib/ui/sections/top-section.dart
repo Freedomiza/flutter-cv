@@ -3,6 +3,7 @@ import 'package:cv_app/components/rounded_button.dart';
 import 'package:cv_app/components/section.dart';
 import 'package:cv_app/components/svg_button.dart';
 import 'package:flutter/material.dart';
+import 'dart:js' as js;
 
 import '../../theme.dart';
 
@@ -23,6 +24,7 @@ class TopSection extends StatelessWidget {
     return Section(
       backgroundImg: "assets/images/header-background.jpg",
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         children: [
           Container(
             height: 60,
@@ -67,14 +69,21 @@ class TopSection extends StatelessWidget {
                         children: [
                           SVGButton(
                             iconUrl: 'images/svg/linkedin.svg',
-                            onPress: () {},
+                            onPress: () {
+                              js.context.callMethod("open", [
+                                "https://www.linkedin.com/in/khoa-le-b31b22a8/"
+                              ]);
+                            },
                           ),
                           SizedBox(
                             width: 12,
                           ),
                           SVGButton(
                             iconUrl: 'images/svg/github.svg',
-                            onPress: () {},
+                            onPress: () {
+                              js.context.callMethod(
+                                  "open", ["https://github.com/Freedomiza"]);
+                            },
                           ),
                         ],
                       ),
