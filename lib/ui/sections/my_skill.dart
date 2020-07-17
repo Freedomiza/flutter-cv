@@ -1,27 +1,48 @@
+import 'package:cv_app/components/rounded_button.dart';
 import 'package:cv_app/components/section.dart';
 import 'package:cv_app/components/work_section.dart';
 import 'package:cv_app/theme.dart';
 import 'package:flutter/material.dart';
 
 class MySkill extends StatelessWidget {
-  const MySkill({Key key}) : super(key: key);
+  const MySkill({Key key, this.onNext, this.pageIndex}) : super(key: key);
+  final Function onNext;
+  final int pageIndex;
 
   @override
   Widget build(BuildContext context) {
-    return Section(
-      backgroundColor: kBackgroundColor1,
-      noConstraint: true,
-      child: WorkSection(
-        title: "MY SKILL",
-        light: true,
-        workDetails: [SkillChart()],
+    double width = MediaQuery.of(context).size.width;
+    return Stack(children: [
+      Positioned(
+        bottom: 10,
+        left: width / 2 - 20,
+        child: RoundedButton(
+            icon: Icons.arrow_upward,
+            color: Colors.black,
+            onPress: () {
+              onNext(0);
+            }),
       ),
-    );
+      Section(
+        backgroundColor: kBackgroundColor1,
+        noConstraint: true,
+        child: Container(
+          height: MediaQuery.of(context).size.height,
+          child: WorkSection(
+            title: "MY SKILL",
+            light: true,
+            workDetails: [SkillChart()],
+          ),
+        ),
+      )
+    ]);
   }
 }
 
 class SkillChart extends StatelessWidget {
-  const SkillChart({Key key}) : super(key: key);
+  const SkillChart({
+    Key key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -115,7 +136,8 @@ class ChartItem extends StatelessWidget {
                   left: 2,
                   child: ConstrainedBox(
                     constraints: BoxConstraints(maxWidth: 500, maxHeight: 26),
-                    child: Container(
+                    child: AnimatedContainer(
+                      duration: Duration(milliseconds: 500),
                       width: (500 * (percent / 100) - 3),
                       padding: EdgeInsets.all(7),
                       color: Colors.black,
